@@ -13,6 +13,7 @@ public class Perceptron {
     private int threshold; // should this be a double?
     private int bias;
 
+    //constructors
     public Perceptron(int i1) {
         x = i1;
     }
@@ -28,6 +29,7 @@ public class Perceptron {
         z = i3;
     }
 
+    // setters
     public void setThreshold(int t) {
         threshold = t;
     }
@@ -36,6 +38,19 @@ public class Perceptron {
         bias = b;
     }
 
+    public void setxWeight(int x) {
+        xWeight = x;
+    }
+
+    public void setyWeight(int y) {
+        yWeight = y;
+    }
+
+    public void setzWeight(int z) {
+        zWeight = z;
+    }
+
+    // the big math part, calculates if perceptron fires (return 1) or not (return 0)
     public int calc() {
         int e;
         if (y != 0 && z != 0) {
@@ -45,6 +60,6 @@ public class Perceptron {
         } else {
             e = bias + (x * xWeight);
         }
-        return (e < threshold) ? 0 : 1;
+        return (e >= threshold) ? 1 : 0;
     }
 }
